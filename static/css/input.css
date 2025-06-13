@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+
+/* Kustomisasi tombol */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transition duration-300;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 transition-colors flex items-center justify-center;
+}
+
+/* Kustomisasi input */
+.form-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Kustomisasi error message */
+.error-message {
+  @apply text-red-500 mb-4 text-sm;
+}
+
+/* Kustomisasi card */
+.card {
+  @apply bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto;
+}
+
+/* Animasi untuk mobile menu */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@tailwind utilities;
+
+/* Animasi fade-in untuk halaman */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Responsivitas global */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  .nav-link {
+    @apply mx-1 px-2 text-sm;
+  }
+  .btn-primary,
+  .btn-secondary {
+    @apply py-2 px-4 text-sm;
+  }
+  .card {
+    @apply p-4 max-w-full;
+  }
+  .form-input {
+    @apply text-sm;
+  }
+  .error-message {
+    @apply text-xs;
+  }
+  canvas#confetti-canvas {
+    transform: scale(0.75);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .card {
+    @apply max-w-md;
+  }
+  .nav-link {
+    @apply mx-2;
+  }
+}

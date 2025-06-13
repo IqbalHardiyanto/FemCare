@@ -1,0 +1,11 @@
+__pycache__/
+.env
+.venv
+*.pyc
+*.pyo
+*.pyd
+.vscode/
+.vercel
+node_modules/
+.DS_Store
+Thumbs.db

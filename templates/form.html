@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="py-8 fade-in">
+    <h1 class="text-4xl font-bold text-center text-blue-700 mb-8">Form Siklus Menstruasi</h1>
+    <div class="card mb-4">
+        <h3 class="text-xl font-semibold text-left text-blue-700 mb-4">Prediksi Kategori Siklus Menstruasi</h3>
+        <p>
+            Kategori Siklus:
+            - Normal Pendek (21-25 hari) <br>
+            - Normal Sedang (26-30 hari) <br>
+            - Normal Panjang (31-35 hari) <br>
+            - Tidak Normal (Diluar rentang 21-35 hari)
+        </p>
+    </div>
+    <div class="card mb-4">
+        <h3 class="text-xl font-semibold text-left text-blue-700 mb-4">Rumus Total Fertility (Jumlah Hari Lendir Subur):
+        </h3>
+        <p>
+            1. Panjang Fase Subur (Berdasarkan Rumus) = Panjang Fase Lendir Serviks Subur (hari) + Panjang Fase
+            Lendir<br>
+            2. Serviks Subur Setelah Ovulasi (hari) + Panjang Fase Puncak Subur (hari)
+        </p>
+    </div>
+    <div class="card mb-4">
+        <h3 class="text-xl font-semibold text-left text-blue-700 mb-4">Skor Penilaian:</h3>
+        <p>
+            1. Stres:
+            1 = Rendah, 2 = Sedang Rendah, 3 = Sedang, 4 = Sedang Tinggi, 5 = Tinggi<br>
+
+            2. Pola Makan:
+            1 = Buruk, 2 = Kurang Baik, 3 = Cukup, 4 = Baik, 5 = Sangat Baik<br>
+
+            3. Kondisi Medis:
+            1 = Ringan/Tidak Ada, 2 = Sedikit, 3 = Sedang, 4 = Cukup Serius, 5 = Serius
+        </p>
+    </div>
+    <div class="card">
+        <form action="/form" method="POST">
+            <div class="space-y-8">
+                <!-- Basic Cycle Information -->
+                <h3 class="text-xl font-semibold text-left text-blue-700 mb-4">Masukkan Informasi Siklus Anda:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Panjang Siklus (hari)</label>
+                        <input type="number" name="cycle_length" class="form-input" min="15" max="50" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Lama Menstruasi (hari)</label>
+                        <input type="number" name="period_length" class="form-input" min="2" max="10" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Usia</label>
+                        <input type="number" name="age" class="form-input" min="15" max="50" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Apakah hari puncak
+                            kesuburan?</label>
+                        <select name="CycleWithPeakorNot" class="form-input" required>
+                            <option>Pilih</option>
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Fertility Tracking -->
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-4">Pelacakan Kesuburan</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Perkiraan Ovulasi (hari)</label>
+                            <input type="number" name="EstimatedDayofOvulation" class="form-input" min="1" max="30"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Hari ke-berapa pertama kali
+                                muncul lendir serviks subur?</label>
+                            <input type="number" name="FirstDayofHigh" class="form-input" min="1" max="30" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Panjang Fase Luteal
+                                (hari)</label>
+                            <input type="number" name="LengthofLutealPhase" class="form-input" min="1" max="20"
+                                required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intercourse Data -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-purple-800 mb-4">Data Hubungan Intim</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Hari Berhubungan</label>
+                            <input type="number" name="NumberofDaysofIntercourse" class="form-input" min="0" max="30"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Berhubungan saat Masa
+                                Subur?</label>
+                            <select name="IntercourseInFertileWindow" class="form-input" required>
+                                <option>Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Total Hari Subur</label>
+                            <input type="number" name="TotalDaysofFertility" class="form-input" min="0" max="30"
+                                required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fertility Metrics -->
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-green-800 mb-4">Metrik Kesuburan</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Hari ke-berapa pertama kali
+                                muncul lendir serviks subur?</label>
+                            <input type="number" name="TotalNumberofHighDays" class="form-input" min="0" max="30"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Panjang Fase Lendir Serviks
+                                Subur Setelah Ovulasi (hari)</label>
+                            <input type="number" name="TotalHighPostPeak" class="form-input" min="0" max="30" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Panjang Fase Puncak Subur
+                                (hari)</label>
+                            <input type="number" name="TotalNumberofPeakDays" class="form-input" min="0" max="30"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Panjang Fase Subur (Berdasarkan
+                                Rumus)</label>
+                            <input type="number" name="TotalFertilityFormula" class="form-input" min="0" max="30"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Lama Menstruasi (hari)</label>
+                            <input type="number" name="LengthofMenses" class="form-input" min="1" max="10" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Perdarahan Tidak Biasa?</label>
+                            <select name="UnusualBleeding" class="form-input" required>
+                                <option>Pilih</option>
+                                <option value="0">Tidak</option>
+                                <option value="1">Ya</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Indicators -->
+                <div class="bg-yellow-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-yellow-800 mb-4">Indikator Kesehatan</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Skor Pola Makan</label>
+                            <select name="DietScore" class="form-input" required>
+                                <option>Pilih</option>
+                                <option value="1">Sangat Buruk</option>
+                                <option value="2">Buruk</option>
+                                <option value="3">Sedang</option>
+                                <option value="4">Baik</option>
+                                <option value="5">Sangat Baik</option>
+                            </select>
+                            <p class="text-xs text-gray-500 mt-1">1: Sangat Buruk,2:Buruk 3: Sedang 4: Baik, 5: Sangat
+                                Baik</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Skor Kesehatan
+                                Reproduksi</label>
+                            <select name="ReproHealthScore" class="form-input" required>
+                                <option>Pilih</option>
+                                <option value="1">Sangat Buruk</option>
+                                <option value="2">Buruk</option>
+                                <option value="3">Sedang</option>
+                                <option value="4">Baik</option>
+                                <option value="5">Sangat Baik</option>
+                            </select>
+                            <p class="text-xs text-gray-500 mt-1">1-2: Buruk, 3: Normal, 4-5: Baik</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Skor Stres</label>
+                            <select name="StressScore" class="form-input" required>
+                                <option>Pilih</option>
+                                <option value="1">Sangat Rendah</option>
+                                <option value="2">Sedang</option>
+                                <option value="3">Sedang</option>
+                                <option value="4">Tinggi</option>
+                                <option value="5">Sangat Tinggi</option>
+                            </select>
+                            <p class="text-xs text-gray-500 mt-1">1: Rendah, 2: Sedang, 3: Normal, 4: Tinggi, 5: Sangat
+                                Tinggi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if error %}
+            <p class="error-message">{{ error }}</p>
+            {% endif %}
+            <button type="submit" class="btn-primary w-full">Prediksi</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

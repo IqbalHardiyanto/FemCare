@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-12 fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <h1 class="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-12">
+            Tentang <span class="text-blue-500">FemCare App</span>
+        </h1>
+
+        <!-- Narasi Aplikasi - Gambar di Kiri -->
+        <section class="flex flex-col md:flex-row items-center justify-between gap-12 mb-16 py-8">
+            <div class="md:w-1/2 flex justify-center">
+                <img src="{{ url_for('static', filename='image/logo.jpg')}}" alt="Ilustrasi Aplikasi"
+                    class="rounded-lg shadow-xl h-auto">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Misi Kami: Memberdayakan Kesehatan Wanita</h2>
+                <p class="text-gray-700 leading-relaxed text-justify mb-4">
+                    "FemCare App" hadir sebagai solusi modern untuk membantu setiap wanita memahami dan
+                    mengelola siklus menstruasinya dengan lebih baik. Kami percaya bahwa pengetahuan adalah kunci, dan
+                    dengan data yang akurat serta prediksi berbasis AI, wanita dapat membuat keputusan yang lebih tepat
+                    mengenai kesehatan reproduksi mereka. Aplikasi ini didesain untuk menjadi teman setia, memberikan
+                    informasi yang relevan mulai dari prediksi menstruasi, masa subur, hingga potensi indikasi
+                    ketidaknormalan, semua dalam genggaman Anda.
+                </p>
+                <p class="text-gray-700 leading-relaxed text-justify">
+                    Kami berkomitmen untuk menyediakan platform yang intuitif, aman, dan informatif, sehingga Anda dapat
+                    melacak siklus Anda dengan percaya diri dan mendapatkan rekomendasi yang dipersonalisasi untuk
+                    mendukung gaya hidup sehat.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tim yang Membangun - Gambar di Kanan -->
+        <section class="flex flex-col md:flex-row-reverse items-center justify-between gap-12 mb-16 py-8">
+            <div class="md:w-1/2 flex justify-center">
+                <img src="{{ url_for('static', filename='image/tim.jpg')}}" alt="Tim Pengembang"
+                    class="rounded-lg shadow-xl max-w-full h-auto">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tim di Balik Inovasi</h2>
+                <p class="text-gray-700 leading-relaxed text-justify mb-4">
+                    Aplikasi "FemCare App" ini dikembangkan oleh sebuah tim yang berdedikasi dan bersemangat
+                    dalam inovasi teknologi untuk kesehatan. Setiap anggota membawa keahlian uniknya, mulai dari ilmu
+                    data, pengembangan web, hingga desain pengalaman pengguna, bersatu untuk menciptakan solusi yang
+                    tidak hanya canggih tetapi juga mudah digunakan.
+                </p>
+                <p class="text-gray-700 leading-relaxed text-justify">
+                    Kami adalah tim yang percaya pada kekuatan kolaborasi dan pembelajaran berkelanjutan, didorong oleh
+                    keinginan untuk memberikan dampak positif bagi kesehatan wanita melalui teknologi.
+                </p>
+                <a href="/team"
+                    class="mt-6 inline-block bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    Lihat Anggota Tim Kami
+                </a>
+            </div>
+        </section>
+
+        <!-- Kolaborasi Program -->
+        <section class="mb-16 py-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Kolaborasi Strategis Kami</h2>
+            <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">
+                "FemCare App" adalah hasil dari sebuah kolaborasi program inovatif yang didukung oleh berbagai
+                pihak terkemuka dalam industri teknologi dan pendidikan.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="{{ url_for('static', filename='image/laskarai.jpeg')}}" alt="Logo Laskar AI"
+                        class="mb-4 h-12 object-contain">
+                    <p class="text-gray-600 text-sm">Inisiator dan penyedia program pelatihan kecerdasan buatan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="{{ url_for('static', filename='image/Logo-Lintasarta-new.png')}}" alt="Logo Lintasarta"
+                        class="mb-4 h-12 object-contain">
+                    <p class="text-gray-600 text-sm">Penyedia infrastruktur dan dukungan teknologi.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="{{ url_for('static', filename='image/dicoding.jpeg')}}" alt="Logo Dicoding"
+                        class="mb-4 h-12 object-contain">
+                    <p class="text-gray-600 text-sm">Platform edukasi dan pengembangan talenta digital.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="{{ url_for('static', filename='image/NVLogo_2D_H.jpg')}}" alt="Logo NVIDIA"
+                        class="mb-4 h-12 object-contain">
+                    <p class="text-gray-600 text-sm">Mendukung pengembangan dengan teknologi GPU dan AI.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+{% endblock %}
