@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="py-12 fade-in">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Bagian Hero  -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
+            <!-- Section Informasi (Kiri) -->
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-5xl font-extrabold text-blue-700 mb-6 leading-tight">
+                    Prediksi Siklus Menstruasi Anda <span class="text-blue-500">Dengan Mudah</span>
+                </h1>
+                <p class="text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0">
+                    Aplikasi ini membantu Anda melacak dan memprediksi siklus menstruasi Anda secara akurat. Dapatkan
+                    rekomendasi personal dan informasi penting untuk kesehatan reproduksi Anda.
+                </p>
+                <a href="/form"
+                    class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+                    Mulai Prediksi Sekarang!
+                </a>
+            </div>
+
+            <!-- Section Hero dengan Gambar (Kanan) -->
+            <div class="md:w-1/2 flex justify-center">
+                <img src="{{ url_for('static', filename='image/siklus-mens.jpg') }}" alt="Siklus Menstruasi"
+                    class="rounded-lg shadow-xl max-w-full h-auto">
+            </div>
+        </div>
+
+        <!-- Section Detail Aplikasi Web -->
+        <div class="bg-gray-50 p-10 rounded-lg shadow-lg mb-16 w-full">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">Tentang Aplikasi "FemCare"</h2>
+            <p class="text-gray-700 leading-relaxed text-justify">
+                "FemCare" adalah platform inovatif yang dirancang untuk membantu wanita memantau dan
+                memahami siklus menstruasi mereka. Aplikasi ini menggunakan teknologi cerdas untuk menganalisis data
+                siklus Anda, memberikan prediksi yang akurat mengenai periode menstruasi berikutnya, masa subur, hingga
+                potensi masalah kesehatan reproduksi. Fitur utama kami meliputi pencatatan detail siklus harian,
+                visualisasi data, dan rekomendasi personal berdasarkan hasil prediksi. Kami berkomitmen untuk
+                memberdayakan setiap wanita dengan pengetahuan yang akurat tentang tubuh mereka, mendukung kesehatan
+                reproduksi yang optimal melalui informasi yang mudah diakses dan antarmuka yang ramah pengguna.
+            </p>
+        </div>
+
+        <!-- Section Narasi Siklus Menstruasi dari Kemenkes RI -->
+        <div class="bg-white p-10 rounded-lg shadow-lg w-full">
+            <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">Siklus Menstruasi Menurut Kemenkes RI</h2>
+            <p class="text-gray-700 leading-relaxed text-justify">
+                Menurut Kementerian Kesehatan Republik Indonesia, siklus menstruasi adalah perubahan fisiologis yang
+                terjadi pada tubuh wanita setiap bulan sebagai persiapan untuk kehamilan. Siklus normal umumnya
+                berlangsung antara 21 hingga 35 hari, dengan rata-rata 28 hari, dihitung dari hari pertama menstruasi
+                hingga hari pertama menstruasi berikutnya. Proses ini melibatkan interaksi kompleks antara hormon-hormon
+                dari otak, ovarium, dan rahim. Menstruasi yang teratur menunjukkan fungsi sistem reproduksi yang sehat.
+                Namun, fluktuasi dalam siklus bisa menjadi indikator adanya perubahan hormonal, stres, gaya hidup, atau
+                kondisi medis tertentu. Penting bagi wanita untuk memahami pola siklus mereka dan berkonsultasi dengan
+                profesional kesehatan jika mengalami ketidakaturan signifikan atau keluhan lainnya.
+            </p>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

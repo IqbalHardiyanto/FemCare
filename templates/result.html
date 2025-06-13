@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="py-12 fade-in">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-4xl font-bold text-blue-700 mb-8 text-center">Hasil Prediksi</h1>
+
+        <div class="card bg-white p-8 rounded-lg shadow-md">
+            <div class="mb-8 p-6 bg-blue-300 rounded-lg">
+                <h2 class="text-lg font-semibold mb-4">Siklus Menstruasi</h2>
+                <div class="flex items-center justify-center space-x-4">
+                    <span class="text-3xl text-center font-bold {{ prediction_class }} "> {{ prediction }} </span>
+                </div>
+            </div>
+
+
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-4">Detail Input Anda</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {% for key, item in details.items() %}
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500">{{ item.label }}</p>
+                        <p class="font-medium text-lg">{{ item.value }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-8 p-6 rounded-lg
+                {% if prediction == 'Siklus Sedang' %}bg-green-300
+                {% elif prediction == 'Siklus Pendek' or prediction == 'Siklus Panjang' %}bg-yellow-300
+                {% else %}bg-red-300{% endif %}">
+                <h2 class="text-xl font-semibold mb-3">Rekomendasi</h2>
+                {% if prediction == 'Siklus Sedang' %}
+                <p>Siklus menstruasi Anda dalam kondisi normal. Pertahankan pola hidup sehat dengan:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>Pola makan seimbang</li>
+                    <li>Olahraga teratur</li>
+                    <li>Manajemen stres yang baik</li>
+                </ul>
+                {% elif prediction == 'Siklus Pendek' %}
+                <p>Siklus Anda termasuk pendek. Disarankan untuk:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>Memeriksa kadar hormon</li>
+                    <li>Menjaga berat badan ideal</li>
+                    <li>Konsultasi ke dokter jika terjadi terus menerus</li>
+                </ul>
+                {% elif prediction == 'Siklus Panjang' %}
+                <p>Siklus Anda termasuk panjang. Disarankan untuk:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>Memeriksa kadar hormon</li>
+                    <li>Menjaga pola makan sehat</li>
+                    <li>Konsultasi ke dokter jika terjadi terus menerus</li>
+                </ul>
+                {% else %} {# Ini akan menangani "Tidak Normal" #}
+                <p>Siklus tidak normal terdeteksi. Disarankan untuk:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>Konsultasi dengan dokter spesialis kandungan</li>
+                    <li>Melakukan pemeriksaan hormon</li>
+                    <li>Memantau siklus secara berkala</li>
+                </ul>
+                {% endif %}
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/form" class="btn-primary">
+                    <i class="fas fa-redo mr-2"></i> Cek Lagi
+                </a>
+                <a href="/about" class="btn-secondary">
+                    <i class="fas fa-info-circle mr-2"></i> Pelajari Lebih Lanjut
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
